@@ -2,16 +2,16 @@ package com.example.newxyzreader.viewmodel;
 
 import com.example.newxyzreader.model.Article;
 
-import java.util.List;
+import androidx.lifecycle.LiveData;
 
-public interface ArticleListView {
+public interface DisplayArticleView {
+
     void showLoader();
 
     void hideLoader();
 
-    void showArticles(List<Article> data);
-
     void showError(String errorMessage);
 
-    void launchArticle(Article article);
+    void showArticle(LiveData<Article> article);
+
 }

@@ -27,7 +27,7 @@ public class ArticleTaskFactory {
         return new GetLocalArticlesTask(repository);
     }
 
-    public GetArticleTask getArticleTask(int articleId){
-        return new GetArticleTask(repository, articleId);
+    public GetArticleTask getArticleTask(int articleId, @NonNull GetArticleTask.GetArticleListener listener){
+        return new GetArticleTask(repository, articleId, listener);
     }
 }

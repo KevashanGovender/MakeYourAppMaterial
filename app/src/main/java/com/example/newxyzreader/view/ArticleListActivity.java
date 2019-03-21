@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 
 import com.example.newxyzreader.R;
 import com.example.newxyzreader.database.ArticleDatabse;
@@ -24,6 +23,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ArticleListActivity extends AppCompatActivity implements ArticleListView {
+
+    public static final String ARTICLE_ID = "article_id";
 
     private RecyclerView articleRv;
     private ProgressBar progressBar;
@@ -71,6 +72,9 @@ public class ArticleListActivity extends AppCompatActivity implements ArticleLis
 
     @Override
     public void launchArticle(Article article) {
-        startActivity(new Intent(this, ScrollingActivity.class));
+        Intent intent = new Intent(this, ArticleDetailDisplay.class);
+        intent.putExtra(ARTICLE_ID, article.getId());
+
+        startActivity(intent);
     }
 }
